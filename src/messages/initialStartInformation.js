@@ -10,6 +10,7 @@ const path = require('path');
 
 type Params = {
   entries: Array<Array<string>>,
+  host: string,
   port: number,
 };
 
@@ -18,7 +19,7 @@ const getEntryFile = (entries: Array<string>) => {
 };
 
 module.exports = (config: Params) => dedent`
-  Ready at ${chalk.cyan(`http://localhost:${config.port}`)}
+  Ready at ${chalk.cyan(`http://${config.host}:${config.port}`)}
 
   Haul is now bundling your React Native app, starting from:
 

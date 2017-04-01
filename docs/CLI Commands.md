@@ -26,6 +26,10 @@ Whether to build in development mode, which sets the global `__DEV__` variable t
 
 Whether to minify the bundle while serving. This will make the bundling process slow due to extra minification step, and is `false` by default.
 
+### `--host [string]`
+
+Host on which the server should run. defaults to `127.0.0.1`.
+
 ### `--port [number]`
 
 Port on which the server should run. defaults to `8081`.

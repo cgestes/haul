@@ -101,12 +101,13 @@ async function start(opts: *) {
     }
   }
 
-  app.listen(opts.port, '127.0.0.1', () => {
+  app.listen(opts.port, opts.host, () => {
     logger.info(
       messages.initialStartInformation({
         entries: Array.isArray(config)
           ? config.map(c => c.entry)
           : [config.entry],
+        host: opts.host,
         port: opts.port,
       }),
     );
@@ -118,6 +119,12 @@ module.exports = {
   description: 'Starts a new webpack server',
   action: start,
   options: [
+    {
+      name: 'host',
+      description: 'Host to run your webpack server',
+      default: '127.0.0.1',
+      parse: String,
+    },
     {
       name: 'port',
       description: 'Port to run your webpack server',
